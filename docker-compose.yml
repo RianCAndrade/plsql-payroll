@@ -1,0 +1,16 @@
+services:
+  oracle:
+    image: gvenzl/oracle-free:slim
+    container_name: oracle-folha
+    ports:
+      - "1522:1521"
+    environment:
+      ORACLE_PASSWORD: admin123
+      APP_USER: folha
+      APP_USER_PASSWORD: folha123
+    volumes:
+      - oracle-folha:/opt/oracle/oradata
+      - ./sql:/container-entrypoint-initdb.d:ro
+
+volumes:
+  oracle-folha:

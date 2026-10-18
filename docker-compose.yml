@@ -5,9 +5,9 @@ services:
     ports:
       - "1522:1521"
     environment:
-      ORACLE_PASSWORD: admin123
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD}
       APP_USER: folha
-      APP_USER_PASSWORD: folha123
+      APP_USER_PASSWORD: ${APP_USER_PASSWORD}
     volumes:
       - oracle-folha:/opt/oracle/oradata
       - ./sql:/container-entrypoint-initdb.d:ro

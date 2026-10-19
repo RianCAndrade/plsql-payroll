@@ -13,4 +13,4 @@ services:
       - ./sql:/container-entrypoint-initdb.d:ro
 
 volumes:
-  oracle-folha:p
+  oracle-folha:

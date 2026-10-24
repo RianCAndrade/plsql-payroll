@@ -47,8 +47,24 @@ create or replace package folha.pkg_folha as
         p_id_competencia in competencia.id_competencia%type
     ) return number;
 
+    e_tabela_inexistente exception;
+    pragma exception_init ( e_tabela_inexistente, -20007 );
+    c_cod_inss constant rubrica.codigo%type := '101';
+    c_cod_irrf constant rubrica.codigo%type := '102';
+    function calcular_inss (
+        p_base   in number,
+        p_dt_ref in date
+    ) return number;
+
+    function calcular_irrf (
+        p_bruto          in number,
+        p_inss           in number,
+        p_nr_dependentes in number,
+        p_dt_ref         in date
+    ) return number;
+
 end pkg_folha;
 /
 
 
--- sqlcl_snapshot {"hash":"7e9e41d31544adc4c17c8e70540cf24c4b15f7da","type":"PACKAGE_SPEC","name":"PKG_FOLHA","schemaName":"FOLHA","sxml":""}
+-- sqlcl_snapshot {"hash":"e57d1d6779420b2147efec4f23eb2fbf01e364ab","type":"PACKAGE_SPEC","name":"PKG_FOLHA","schemaName":"FOLHA","sxml":""}

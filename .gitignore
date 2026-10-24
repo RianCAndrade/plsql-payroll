@@ -1,4 +1,4 @@
-.env# Oracle SQLcl Projects
+.env
 artifact/*
 var/*
 *.tar.gz
